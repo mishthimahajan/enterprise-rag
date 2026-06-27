@@ -1,0 +1,7 @@
+.venv
+__pycache__
+*.pyc
+uploads
+faiss_storage
+.env
+.git

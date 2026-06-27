@@ -1,0 +1,23 @@
+# Python
+.venv/
+venv/
+testenv/
+ragenv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+backend/.env
+
+# Uploads
+backend/uploads/
+backend/faiss_storage/
+
+# Next.js
+frontend/.next/
+frontend/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
