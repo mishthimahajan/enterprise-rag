@@ -1,33 +1,25 @@
-# from sentence_transformers import SentenceTransformer
+import os
+from google import genai
+from dotenv import load_dotenv
 
-# model = SentenceTransformer(
-#     "all-MiniLM-L6-v2"
-# )
+load_dotenv()
 
-
-# def create_embeddings(texts):
-
-#     return model.encode(
-#         texts,
-#         convert_to_numpy=True
-#     )
-
-from sentence_transformers import (
-    SentenceTransformer
+client = genai.Client(
+    api_key=os.getenv("GEMINI_API_KEY")
 )
-
-
-MODEL = SentenceTransformer(
-    "all-MiniLM-L6-v2"
-)
-
 
 def create_embeddings(texts):
 
-    embeddings = MODEL.encode(
-        texts,
-        convert_to_numpy=True,
-        normalize_embeddings=True
-    )
+    if isinstance(texts, str):
+        texts = [texts]
+
+    embeddings = []
+
+    for text in texts:
+        response = client.models.embed_content(
+            model="text-embedding-004",
+            contents=text
+        )
+        embeddings.append(response.embeddings[0].values)
 
     return embeddings
