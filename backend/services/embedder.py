@@ -8,6 +8,7 @@ client = genai.Client(
     api_key=os.getenv("GEMINI_API_KEY")
 )
 
+
 def create_embeddings(texts):
 
     if isinstance(texts, str):
@@ -16,10 +17,12 @@ def create_embeddings(texts):
     embeddings = []
 
     for text in texts:
+
         response = client.models.embed_content(
             model="text-embedding-004",
             contents=text
         )
-        embeddings.append(response.embeddings[0].values)
+
+        embeddings.append(response.embedding.values)
 
     return embeddings
