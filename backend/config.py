@@ -29,6 +29,7 @@ UPLOAD_DIR = os.path.join(
     BASE_DIR,
     "uploads"
 )
+os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 
 FAISS_DIR = os.path.join(
