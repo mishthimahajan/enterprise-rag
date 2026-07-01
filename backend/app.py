@@ -57,7 +57,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000"
-        "https://enterprise-rag-sepia.vercel.app/"
+        
         "https://enterprise-q6i3qovuy-mishthimahajan0-gmailcoms-projects.vercel.app/"
     ],
     allow_credentials=True,
